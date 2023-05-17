@@ -1,7 +1,8 @@
 # palera1n website clone
 * I was bored and wanted to learn astro. I chose to remake the [palera1n](https://palera.in) website and improve on it in what I thought would make it look better.
 * This uses vanilla CSS, and no other JS framework. Only Astro.
-* This took me around a day to make
+* This took me around a day to make.
+* **Live demo here** -> https://bejewelled-cassata-c3b216.netlify.app/
 
 ## Took some code from original palera1n website here, most notably the js used to detect useragent -> https://github.com/palera1n/website/
 ## 🧞 Commands
