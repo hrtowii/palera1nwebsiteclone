@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon'
     const data = await res.json();
     const stars = data.stargazers_count;
 
-    const stars_element: HTMLElement | null = document.getElementById("stars");
+    const stars_element: HTMLElement | null = document.getElementById("stars_element");
     if (stars_element) {
         stars_element.innerHTML = stars_element.innerHTML.replace('starsHere', stars);
     }
@@ -32,7 +32,7 @@ import { Icon } from 'astro-icon'
     <div class="logo">
         <a href="/">
             <img src="/public/favicon.png"/>
-            <p>palera1n</p>
+            <strong><p>palera1n</p></strong>
         </a>
     </div>
     <div class="links">
@@ -41,9 +41,8 @@ import { Icon } from 'astro-icon'
         <a href="downloads"><h2>Downloads</h2></a>
     </div>
     <div class="stargazers">
-        <a href="https://github.com/palera1n/palera1n/stargazers" id="stars_element">
-            <Icon pack="mdi" name="star" class="star" /> starsHere
+        <a href="https://github.com/palera1n/palera1n/stargazers" style="display:flex; align-items: center;" id="stars_element">
+            <Icon pack="mdi" name="star" class="star" /><p style="display: inline; margin-top: 3px;">starsHere</p>
         </a>
     </div>
 </div>
-<br>

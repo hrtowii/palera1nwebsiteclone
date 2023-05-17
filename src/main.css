@@ -46,6 +46,7 @@ h2 {
 hr {
     color: var(--background3);
 }
+
 li,
 ul {
     color: rgb(var(--text))
@@ -106,7 +107,7 @@ p {
     padding-left: 0rem;
     padding-right: 0rem;
     text-align: start;
-    background-color: var(--background2);
+    background-color: var(--background1);
     border-radius: 1000px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -117,7 +118,7 @@ p {
     display: block;
     align-items: center;
     text-align: start;
-    background-color: var(--background2);
+    background-color: var(--background1);
     border-radius: 100px;
 }
 
@@ -140,13 +141,45 @@ p {
     margin-left: 0.6rem;
 }
 
+
+.faqcard {
+    margin-top: 2vh;
+    list-style: none;
+    display: block;
+    padding: 1rem;
+    text-align: start;
+    background-color: var(--background1);
+    border-radius: 0.7rem;
+    border-color: rgba(var(--accent), 0.7);
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.faqcard h2 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 1.25rem;
+    color: rgb(var(--accent));
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faqcard p {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: rgb(var(--text));
+}
+
+.faqcard:is(:hover, :focus-within) h2 {
+    color: rgb(var(--accent));
+}
+
 #navbar {
     /* position: sticky;
     top: 0; */
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
-    background-color: var(--background2);
+    background-color: var(--background1);
     z-index: 2;
 }
 
@@ -178,7 +211,7 @@ p {
     align-items: center;
 }
 
-.logo a img {
+.logo a > img {
     max-width: 48px;
     max-height: 48px;
     padding-bottom: 6px;
@@ -193,6 +226,7 @@ p {
 .stargazers {
     display: flex;
     align-items: center;
+    margin-right: 2%;
 }
 
 .star {
@@ -209,13 +243,14 @@ p {
     display: flex;
     justify-content: center;
 }
-#windows-error {
+
+.windowsbutton {
     display: inline-flex;
     padding: 0.75rem;
     margin-top: 1rem;
     margin-right: 0.5rem;
     text-decoration: none;
-    background-color: #F87171;
+    border-style: solid;
     color: white;
     justify-content: center;
     align-items: center;
@@ -223,51 +258,60 @@ p {
     height: max-content;
     border-radius: 0.75rem;
     border-width: 2px;
+}
+
+#windows-error {
+    background-color: #F87171;
     border-color: #B91C1C;
-    border-style: solid;
 }
 
 #windows-text {
-    display: inline-flex;
-    padding: 0.75rem;
-    margin-top: 1rem;
     background-color: #9CA3AF;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    max-width: max-content;
-    border-radius: 0.75rem;
-    border-width: 2px;
     border-color: #6B7280;
-    border-style: solid;
 }
 
-#updatecard {
+.updatecard {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     background-color: var(--background1);
     padding: 1.5em;
     border-radius: 20px;
     border-style: solid;
     border-color: var(--background3);
-    text-align: left;
+    text-align: start;
     color: white;
+    margin-bottom: 2vh;
+    width: 800px;
 }
 
-#updatecard ul {
+.updatecard ul {
     list-style-type: "-   ";
 }
 
-#updatecard > a {
+.updatecard .shrink > a {
     color: #1D4ED8;
 }
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 1024px) {
     .links {
         display: none;
     }
-
     main {
         max-width: 90vw;
     }
-
+    .updatecard {
+        width: 90vw;
+        padding: 0;
+    }
+    .shrink {
+        margin: 20px;
+    }
     .creditscard {
         width: 90vw;
     }

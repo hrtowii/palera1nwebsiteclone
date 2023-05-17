@@ -2,11 +2,12 @@
 import "../main.css";
 import { Icon } from "astro-icon";
 export interface Props {
-    link?: string;
+    style?: string;
+    isHidden: string;
     os: string;
     arch: string;
 }
-const { link, os, arch } = Astro.props;
+const { style, isHidden, os, arch } = Astro.props;
 const downloadLink: string =
     "https://github.com/palera1n/palera1n/releases/download/v2.0.0-beta.6.2/palera1n-" +
     os +
@@ -29,11 +30,18 @@ if (arch == "x86") {
 } else {
     archString = arch;
 }
+
+var isHiddenString: string = "";
+if (isHidden == "true") {
+    isHiddenString = "hidden";
+} else if (isHidden == "false") {
+    isHiddenString = "";
+}
 ---
 <div class="centered">
-    <a href={downloadLink} id={os + arch} class="hidden">
+    <a style={style} href={downloadLink} id={os + arch} class={isHiddenString}>
         <Icon pack="mdi" name="download" class="download" />
-        <span class="text-center">Download for {osString} (CLI, {archString})</span>
+        <span>Download for {osString} (CLI, {archString})</span>
     </a>
 </div>
 <style>
@@ -60,9 +68,11 @@ if (arch == "x86") {
         border-color: var(--background3);
         border-style: solid;
         text-decoration: none;
+        width: 40%;
     }
-    .centered {
-        display:flex;
-        justify-content: center;
-    }
+
+    @media (max-width: 1024px) {
+        a {
+            width: 100%;
+        }
 </style>
