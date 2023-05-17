@@ -1,0 +1,36 @@
+---
+import Navbar from '../components/Navbar.astro';
+import FAQCard from '../components/FAQCard.astro'
+import CreditsCard from '../components/CreditsCard.astro'
+import Card from '../components/Card.astro'
+import Layout from '../layouts/Layout.astro';
+import '../main.css'
+---
+
+<Layout title="palera1nclone" description="semi-tethered jailbreak for iOS 15-16.x">
+	<Navbar/>
+	<main>
+		<h1 class="text-gradient">palera1n</h1>
+		<p>palera1n is a developer-oriented jailbreak for checkm8 devices (A8-A11) on iOS 15.0-16.4</p>
+		<ul role="list" class="link-card-grid">
+			<Card href="https://ios.cfw.guide/installing-palera1n/" title="Get started" body="Guide from stock iOS to jailbroken" />
+			<Card href="downloads" title="Downloads" body="Latest version: 2.0.0b6" />
+		</ul>
+		<h2>FAQ</h2>
+		<p>These are some of the most commonly asked questions.</p>
+		<FAQCard question="What is palera1n?" answer="palera1n is a developer-oriented jailbreak for checkm8 devices (A8-A11) on iOS 15.0-16.4."/>
+		<FAQCard question="What platforms are supported?" answer="You may jailbreak any A8-A11 device on iOS 15.0-16.4 using macOS or Linux. There is no Windows support and we do not know if palera1n will ever have it."/>
+		<FAQCard question="How can I jailbreak with palera1n?" answer="The following steps on ios.cfw.guide may help you. (click!)" link="https://ios.cfw.guide/installing-palera1n"/>
+		<FAQCard question="Can I use my tweaks?" answer="Yes, we have tweak support, but only tweaks that work on iOS 15-16 will work, there's no guarantee that iOS 14 and lower tweaks will work."/>
+		<FAQCard question="Am I able to SSH?" answer=" Yes, similar to checkra1n we have SSH that is started when the device boots up, port is 44 and can only be accessed via USB connection. "/>
+		<FAQCard question="I need more help or I have more questions!" answer="Join our Discord! We have helpers who can help you with your issues, and answer your questions."/>
+		<h2>Credits</h2>
+		<p>We worked hard together to make palera1n possible :)</p>
+		<CreditsCard link="https://github.com/asdfugil" imgsrc="https://github.com/asdfugil.png" header="Nick Chan" description="jbinit & palera1n 2.0.0 cli"/>
+		<CreditsCard link="https://github.com/plooshi" imgsrc="https://github.com/plooshi.png" header="Tom" description="KPF & Kernel Patches"/>
+		<CreditsCard link="https://github.com/kok3shidoll" imgsrc="https://github.com/kok3shidoll.png" header="dora2ios" description="jbinit & KPF"/>
+		<CreditsCard link="https://github.com/flowerible" imgsrc="https://github.com/flowerible.png" header="flower" description="Loader Development"/>
+		<CreditsCard link="https://github.com/staturnzz" imgsrc="https://github.com/staturnzz.png" header="staturnzz" description="Loader Development"/>
+		<CreditsCard link="https://github.com/itsnebulalol" imgsrc="https://github.com/itsnebulalol.png" header="Nebula" description="Introducing a bug & Some Contributions"/>
+	</main>
+</Layout>	

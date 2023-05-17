@@ -1,0 +1,23 @@
+---
+import '../main.css'
+export interface Props {
+    link: string;
+    imgsrc: string;
+    header: string;
+    description: string;
+}
+const { link, imgsrc, header, description } = Astro.props
+---
+
+
+<a href={link} class="creditscard">
+    <img src={imgsrc}></img>
+        <div class="credittext">
+            <h2>
+                {header}
+            </h2>
+            <p>
+                {description}
+            </p>
+    </div>
+</a>

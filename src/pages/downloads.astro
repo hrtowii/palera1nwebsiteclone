@@ -1,0 +1,122 @@
+---
+import { Icon } from 'astro-icon';
+import Layout from '../layouts/Layout.astro';
+import '../main.css';
+import Navbar from '../components/Navbar.astro';
+import DownloadButton from '../components/DownloadButton.astro';
+---
+
+<script>
+	const userAgent = navigator.userAgent;
+
+	const isMac = /Macintosh/.test(userAgent);
+	const isLinux = /Linux/.test(userAgent);
+	const isWindows = /Windows/.test(userAgent);
+
+	const isAndroid = /Android/.test(userAgent);
+	const isX86_64 = /x86_64|amd64/.test(userAgent);
+	const isAarch64 = /aarch64|arm64/.test(userAgent);
+	const isI686 = /i686|i386/.test(userAgent);
+	const isArmel = /armel/.test(userAgent);
+
+	if (isMac) {
+	  // Show MacOS download button
+	  document.querySelector("#macosuniversal").classList.remove('hidden');
+	} else if (isLinux) {
+	  // Show Linux / Android download button based on architecture
+	  if (isX86_64) {
+		document.querySelector('#linuxx86_64').classList.remove('hidden');
+	  } else if (isAarch64) {
+		document.querySelector('#linuxarm64').classList.remove('hidden');
+	  } else if (isI686) {
+		document.querySelector('#linuxx86').classList.remove('hidden');
+	  } else if (isArmel) {
+		document.querySelector('#linuxarmel').classList.remove('hidden');
+	  } else if (isAndroid) {
+		document.querySelector('#linuxx86_64').classList.remove('hidden');
+	  }
+	} else if (isWindows) {
+		document.querySelector('#windowsmoment').classList.remove('hidden');
+	}
+</script>
+
+<Layout title="palera1n | Downloads" description="semi-tethered jailbreak for iOS 15-16.x">
+	<Navbar/>
+	<main>
+		<h1 style="color: white; font-size: 3rem;">Latest Releases</h1> <!-- available arches: universal, x86_64, aarch64, armel -->
+        <h2 style="color: white; font-size: 2rem;">v2.0.0 beta 6: Bakepale</h2>
+        <div id="updatecard">
+            <DownloadButton os="macos" arch="universal"/> <!-- available oses: macos (will always be universal arch), linux, windows.  -->
+            <DownloadButton os="linux" arch="x86_64"/>
+            <DownloadButton os="linux" arch="arm64"/>
+            <DownloadButton os="linux" arch="x86"/>
+            <DownloadButton os="linux" arch="armel"/>
+            <div id="windowsmoment" class="hidden"> <!--i know this is shit -->
+                <div class="centered">
+                    <a id="windows-error" href="https://http.cat/401">
+                        <Icon pack="mdi" style="height:1.4em; margin-right: 0.5rem;" name="alert-circle" />
+                        <span>Your platform is unsupported (Windows).</span>
+                    </a>
+                    <a id="windows-text" href="https://ios.cfw.guide/using-palen1x">
+                        <Icon pack="mdi" name="open-in-new" style="margin-right: 0.5rem; height: 1.4em;" />
+                        <span>Use palen1x instead.</span>
+                    </a>
+                </div>
+            </div>
+            <h3>Documentation</h3>
+            <hr>
+            <a href="https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.6.2/palera1n.1.html">https://cdn.nickchan.lol/palera1n/c-rewrite/releases/v2.0.0-beta.6.2/palera1n.1.html</a>
+            <h3>Notes</h3>
+            <hr>
+            <ul>
+                <li>Loader has been rewritten in this beta, any issues that come around will be fixed in a later beta.</li>
+                <li>Able to jailbreak the device in fakefs-rootful mode, where <code>/</code> is writable, as well as rootless mode, where <code>/</code> cannot be written to. </li>
+                <li>On A11 devices, that is, iPhone 8, iPhone 8 Plus and iPhone X, the passcode cannot be used. </li>
+                <li>On A11 devices, on iOS 15, the passcode must be off while jailbroken. </li>
+                <li>On A11 devices, on iOS 16, the passcode must be off since restore, and "Reset All Contents and Settings" from settings app counts as a restore. A backup may be used in this case. </li>
+            </ul>
+            <h2>Changelog</h2>
+            <hr>
+            <h4>Highlighted changes</h4>
+            <hr>
+            <ul>
+                <li>iOS 16.4 - 16.4.1 support</li>
+                <li>BindFS 16.0+ support</li>
+                <li>New rewritten loader app</li>
+                <li>Baked with bakera1n (?)</li>
+            </ul>
+            <h4>palera1n Loader</h4>
+            <hr>
+            <ul>
+                <li>90%~ less in size (290kb) (approximately)</li>
+                <li>Fully rewritten loader in UIKit, with some localisations for Chinese and Japanese</li>
+                <li> Loader creates a randomized string jb-XXXXXXXX that would contain the procursus folder, similar to Dopamine </li>
+                <li>A lot of debugging info</li>
+                <li>Download progress bar</li>
+                <li>Hide environment option for jailbreak detection (on rootless)</li>
+                <li>Updated bootstraps</li>
+            </ul>
+            <h4>Other device-side changes</h4>
+            <hr>
+            <ul>
+                <li>For existing rootless installs, your procursus folder will now include having a randomized string </li>
+                <li><code> ^ /private/preboot/uuid/procursus to /private/preboot/uuid/jb-XXXXXXXX/procursus </code></li>
+                <li>Missing <code>/var/jb/</code>symlink will be moved when jailbreaking rootless</li>
+                <li>cfprefsd hook for rootless</li>
+            </ul>
+            <h4>Verbose changes</h4>
+            <hr>
+            <ul><li>Creating FakeFS/BindFS will be more noticeable for the user</li></ul>
+            <h4>CLI changes</h4>
+            <hr>
+            <ul><li>Update credits</li></ul>
+            <h2>Known Issues</h2>
+            <hr>
+            <ul>
+                <li>If stuck at booting pongoOS or found Pongo USB mode device, Ctrl+C, type exit, then retry, don't reboot the device. It happens on A9 and older devices. If it still doesn't work, you can also try unplugging and replugging the device. </li>
+                <li>( Rootful ) Make sure you created fakeFS/bindFS before jailbreaking with rootful, or else you'll also be stuck on the pongoOS screen. </li>
+                <li>Using libhooker-oss will kill launchd</li>
+            </ul>
+        </div>
+	</main>
+</Layout>

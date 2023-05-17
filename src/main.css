@@ -1,0 +1,274 @@
+:root {
+    --background1: #1e2326;
+    --background2: #272e33;
+    --background3: #2e383c;
+    --backgroundgradient: linear-gradient(135deg, #071B33, #833F46, #FFB123);
+    --text: 255, 255, 255;
+    --accent: 255, 177, 35;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #833f46 30%, #071b33 60%);
+}
+
+html {
+    font-family: system-ui, sans-serif;
+    background: var(--backgroundgradient);
+}
+
+code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+        Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+main {
+    text-align: center;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70vw;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 800;
+    color: rgb(var(--accent));
+}
+
+h2 {
+    color: white;
+}
+
+hr {
+    color: var(--background3);
+}
+li,
+ul {
+    color: rgb(var(--text))
+}
+
+p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: rgb(var(--text));
+}
+
+.text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%;
+    background-position: 0%;
+}
+
+.block {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 2px solid rgba(var(--accent), 25%);
+    color: rgb(var(--text));
+    background-color: var(--background2);
+    padding: 1rem;
+    border-radius: 0.4rem;
+}
+
+.block code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+}
+
+.block strong {
+    color: rgb(var(--accent));
+}
+
+.link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+}
+
+
+.creditscard {
+    text-decoration: none;
+    margin-top: 2vh;
+    width: 40vw;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    text-align: start;
+    background-color: var(--background2);
+    border-radius: 1000px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.credittext {
+    width: 100%;
+    list-style: none;
+    display: block;
+    align-items: center;
+    text-align: start;
+    background-color: var(--background2);
+    border-radius: 100px;
+}
+
+.credittext h2 {
+    margin: 0px;
+    font-size: 1.25rem;
+    color: rgb(var(--text));
+}
+
+.credittext p {
+    margin: 0px;
+    color: rgb(var(--text));
+}
+
+.creditscard img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
+}
+
+#navbar {
+    /* position: sticky;
+    top: 0; */
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    background-color: var(--background2);
+    z-index: 2;
+}
+
+.links {
+    display: inline-flex;
+}
+
+#navbar a {
+    padding: 0px 8px 0px 8px;
+    text-decoration: none;
+}
+
+#navbar h2 {
+    font-size: 1.25rem;
+    color: rgba(var(--text), 0.6);
+    transition: color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#navbar h2:hover {
+    color: rgb(var(--accent));
+}
+
+.logo {
+    display: flex;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo a img {
+    max-width: 48px;
+    max-height: 48px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.logo p {
+    margin: 0px;
+    margin-left: 5px;
+}
+
+.stargazers {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    display: inline;
+    height: 1.5em;
+    color: grey;
+}
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+#windows-error {
+    display: inline-flex;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+    background-color: #F87171;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    max-width: max-content;
+    height: max-content;
+    border-radius: 0.75rem;
+    border-width: 2px;
+    border-color: #B91C1C;
+    border-style: solid;
+}
+
+#windows-text {
+    display: inline-flex;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #9CA3AF;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    max-width: max-content;
+    border-radius: 0.75rem;
+    border-width: 2px;
+    border-color: #6B7280;
+    border-style: solid;
+}
+
+#updatecard {
+    background-color: var(--background1);
+    padding: 1.5em;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: var(--background3);
+    text-align: left;
+    color: white;
+}
+
+#updatecard ul {
+    list-style-type: "-   ";
+}
+
+#updatecard > a {
+    color: #1D4ED8;
+}
+@media (max-width: 1024px) {
+    .links {
+        display: none;
+    }
+
+    main {
+        max-width: 90vw;
+    }
+
+    .creditscard {
+        width: 90vw;
+    }
+}
