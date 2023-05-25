@@ -298,6 +298,15 @@ p {
     justify-content: center;
 }
 
+#pfps {
+    display: flex; 
+    justify-content: center; 
+    width: 40vw; 
+    flex-wrap: wrap;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
 @media (max-width: 1024px) {
     .links {
         display: none;
@@ -312,7 +321,7 @@ p {
     .shrink {
         margin: 20px;
     }
-    .creditscard {
+    .creditscard, #pfps {
         width: 90vw;
     }
 }

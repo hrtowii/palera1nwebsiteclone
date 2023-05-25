@@ -1,0 +1,28 @@
+---
+import '../main.css'
+export interface Props {
+    link: string;
+    imgsrc: string;
+}
+const { link, imgsrc } = Astro.props
+---
+
+<a href={link} class="profilepic">
+    <img src={imgsrc}></img>
+</a>
+<style>
+    .profilepic > img {
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--background1);
+        margin-top: 1.5em;
+        margin-right: 0.5em;
+        border-style: solid;
+        border-color: var(--background3);
+        border-width: 4px;
+        max-width: 40px;
+        max-height: 40px;
+    }
+</style>

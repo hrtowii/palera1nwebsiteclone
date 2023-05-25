@@ -1,16 +1,17 @@
 ---
 import '../main.css'
 export interface Props {
-    link: string;
+    style?: string;
+    link?: string;
     imgsrc: string;
     header: string;
     description: string;
 }
-const { link, imgsrc, header, description } = Astro.props
+const { style, link, imgsrc, header, description } = Astro.props
 ---
 
 
-<a href={link} class="creditscard">
+<a style={style} href={link} class="creditscard">
     <img src={imgsrc}></img>
         <div class="credittext">
             <h2>
@@ -19,5 +20,5 @@ const { link, imgsrc, header, description } = Astro.props
             <p>
                 {description}
             </p>
-    </div>
+        </div>
 </a>
