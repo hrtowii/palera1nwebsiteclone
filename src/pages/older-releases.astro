@@ -40,18 +40,18 @@ import DownloadButton from '../components/DownloadButton.astro';
 	}
 </script>
 
-<Layout title="palera1n | Downloads" description="semi-tethered jailbreak for iOS 15-16.x">
+<Layout title="palera1n | Older releases" description="semi-tethered jailbreak for iOS 15-16.x">
 	<Navbar/>
 	<main>
-		<h1 style="color: white; font-size: 3rem;">Latest Releases</h1> <!-- available arches: universal, x86_64, aarch64, armel -->
-        <h2 style="color: white; font-size: 2rem;">v2.0.0 beta 7</h2>
+		<h1 style="color: white; font-size: 3rem;">Older Releases</h1> <!-- available arches: universal, x86_64, aarch64, armel -->
+        <h2 style="color: white; font-size: 2rem;">v2.0.0 beta 6: Bakepale</h2>
         <div class="updatecard">
           <div class="shrink">
-              <DownloadButton style="width: 60%;" isHidden="true" os="macos" arch="universal"/> <!-- available oses: macos (will always be universal arch), linux, windows.  -->
-              <DownloadButton isHidden="true" os="linux" arch="x86_64"/>
-              <DownloadButton isHidden="true" os="linux" arch="arm64"/>
-              <DownloadButton isHidden="true" os="linux" arch="x86"/>
-              <DownloadButton isHidden="true" os="linux" arch="armel"/>
+              <DownloadButton version="6.2" style="width: 60%;" isHidden="true" os="macos" arch="universal"/> <!-- available oses: macos (will always be universal arch), linux, windows.  -->
+              <DownloadButton version="6.2" isHidden="true" os="linux" arch="x86_64"/>
+              <DownloadButton version="6.2" isHidden="true" os="linux" arch="arm64"/>
+              <DownloadButton version="6.2" isHidden="true" os="linux" arch="x86"/>
+              <DownloadButton version="6.2" isHidden="true" os="linux" arch="armel"/>
               <div id="windowsmoment" class="hidden"> <!--i know this is shit -->
                   <div class="centered">
                       <a class="windowsbutton" id="windows-error" href="https://http.cat/401">
@@ -81,44 +81,36 @@ import DownloadButton from '../components/DownloadButton.astro';
               <h4>Highlighted changes</h4>
               <hr>
               <ul>
-                  <li>Fixed 16.0 beta 1 (20A5283p) not being able to jailbreak.</li>
-                  <li>Fixed Error 256/512 during rootful bootstrap installation.</li>
-                  <li>Fixed rootless --force-revert issue not being able to find boot hash.</li>
+                  <li>iOS 16.4 - 16.4.1 support</li>
+                  <li>BindFS 16.0+ support</li>
+                  <li>New rewritten loader app</li>
+                  <li>Baked with bakera1n (?)</li>
               </ul>
               <h4>palera1n Loader</h4>
               <hr>
               <ul>
-                  <li>Added better logging for Loader.</li>
-                  <li>Added French, Arabic, Polish, German, Spanish, Czech, Swedish, Dutch, and Catalan translations.</li>
-                  <li>APT packages update on first install.</li>
-                  <li>Check if user has sideloaded.</li>
-                  <li>Fixed Error 256/512 during rootful bootstrap installation.</li>
-                  <li>Fixed Input/Output Error during bootstrap installation (--force-revert).</li>
-                  <li>General code cleanup, some better practices.</li>
-                  <li>Helper moved to jbinit/jbloader.</li>
-                  <li>Nebula Keyring will be installed on bootstrap.</li>
-                  <li>Re-added alert if user has used --force-revert.</li>
+                  <li>90%~ less in size (290kb) (approximately)</li>
+                  <li>Fully rewritten loader in UIKit, with some localisations for Chinese and Japanese</li>
+                  <li> Loader creates a randomized string jb-XXXXXXXX that would contain the procursus folder, similar to Dopamine </li>
+                  <li>A lot of debugging info</li>
+                  <li>Download progress bar</li>
+                  <li>Hide environment option for jailbreak detection (on rootless)</li>
+                  <li>Updated bootstraps</li>
               </ul>
               <h4>Other device-side changes</h4>
               <hr>
               <ul>
-                  <li>Fixed rootless --force-revert issue not being able to find boot hash.</li>
-                <li>
-                    Jailbreak contents such as /private/preboot/&boot_hash/jb-* and or /procursus would not be deleted, but is fixed in this release.
-                </li>
+                  <li>For existing rootless installs, your procursus folder will now include having a randomized string </li>
+                  <li><code> ^ /private/preboot/uuid/procursus to /private/preboot/uuid/jb-XXXXXXXX/procursus </code></li>
                   <li>Missing <code>/var/jb/</code>symlink will be moved when jailbreaking rootless</li>
                   <li>cfprefsd hook for rootless</li>
               </ul>
+              <h4>Verbose changes</h4>
+              <hr>
+              <ul><li>Creating FakeFS/BindFS will be more noticeable for the user</li></ul>
               <h4>CLI changes</h4>
               <hr>
-              <ul>
-                <li>Added -C, --clean-fakefs flag.</li>
-                <ul>
-                  <li>Reverts snapshot back to when the fakefs was first created, this will not remove the fakefs</li>
-                  <li>Only works if a snapshot is created when fakefs is created, so it will only work if fakefs is also created with release or newer release.</li>
-                </ul>
-                <li>MbedTLS was updated.</li>
-              </ul>
+              <ul><li>Update credits</li></ul>
               <h2>Known Issues</h2>
               <hr>
               <ul>
@@ -132,17 +124,13 @@ import DownloadButton from '../components/DownloadButton.astro';
           <div style="text-align: center;" class="shrink">
             <a href="older-releases">
               <Icon pack="mdi" name="link-variant" style="display:inline-block; position: relative; top: 0.2rem; height: 1.5em; color: grey;"/>
-              <h2 style="display:inline-block; margin: 0; margin-bottom: 1rem;">Older Releases</h2>
-            </a><br>
-            <a href="https://github.com/palera1n/palera1n/releases">
-              <Icon pack="mdi" name="link-variant" style="display:inline-block; position: relative; top: 0.2rem; height: 1.5em; color: grey;"/>
               <h2 style="display:inline-block; margin: 0; margin-bottom: 1rem;">All Builds</h2>
             </a>
-            <DownloadButton style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="macos" arch="universal"/> <!-- available oses: macos (will always be universal arch), linux, windows.  -->
-            <DownloadButton style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="linux" arch="x86_64"/>
-            <DownloadButton style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="linux" arch="arm64"/>
-            <DownloadButton style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="linux" arch="x86"/>
-            <DownloadButton style="width: 100%; justify-content: start;" isHidden="false" os="linux" arch="armel"/>
+            <DownloadButton version="6.2" style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="macos" arch="universal"/> <!-- available oses: macos (will always be universal arch), linux, windows.  -->
+            <DownloadButton version="6.2" style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="linux" arch="x86_64"/>
+            <DownloadButton version="6.2" style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="linux" arch="arm64"/>
+            <DownloadButton version="6.2" style="width: 100%; margin-bottom: 2vh; justify-content: start;" isHidden="false" os="linux" arch="x86"/>
+            <DownloadButton version="6.2" style="width: 100%; justify-content: start;" isHidden="false" os="linux" arch="armel"/>
           </div>
         </div>
 	</main>
